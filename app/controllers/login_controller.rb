@@ -10,11 +10,13 @@ class LoginController < ApplicationController
 
   def login
     users = User.where(sprintf("email = '%s'", params[:email]))
+    puts "User Count: #{users.length}"
     if users.length > 0
       j = users.length - 1
       for i in 0..j do
         user = users[i]
         failedCount = user.failed_login_count
+        puts "FailedCount: #{failedCount}"
         if failedCount && failedCount > 5 && user.updated_at < Time.now.ago(5.hours)
           flash.now[:alert] = LoginMessage4
           render :index
