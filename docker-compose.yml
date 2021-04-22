@@ -5,7 +5,7 @@ services:
       context: .
     command: bundle exec rails s -p 3000 -b '0.0.0.0'
     environment:
-      DATABASE_URL: postgres://postgres:@postgres
+      DATABASE_URL: postgres://postgres:@postgres/review_test
     ports:
       - 3210:3000
     stdin_open: true

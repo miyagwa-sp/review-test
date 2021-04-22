@@ -19,6 +19,9 @@ ActiveRecord::Schema.define(version: 2021_04_22_043736) do
     t.string "email", null: false
     t.string "password", null: false
     t.string "name"
+    t.string "role"
+    t.integer "failed_login_count"
+    t.datetime "last_login_at"
     t.datetime "created_at", precision: 6, null: false
     t.datetime "updated_at", precision: 6, null: false
   end
