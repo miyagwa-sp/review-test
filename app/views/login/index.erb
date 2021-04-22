@@ -1,0 +1,13 @@
+<%= form_tag('/login', method: :post, class: 'form-signin') do %>
+  <img class="mb-4" src="roov_v.svg" alt="" width="144" height="144">
+  <%= label_tag(:email, 'Email address', class: 'sr-only') %>
+  <%= text_field_tag(:email,'', placeholder: 'Email Address', class: 'form-control') %>
+  <%= label_tag(:password, 'Password', class: 'sr-only') %>
+  <%= password_field_tag(:password,'', placeholder: 'Password', class: 'form-control') %>
+  <div class="mb-3">
+    <%= check_box_tag(:retain_session) %>
+    <%= label_tag(:retain_session, 'ログイン状態を保持する') %>
+  </div>
+  <%= submit_tag('ログイン', class:'btn btn-lg btn-primary btn-block') %>
+  <p class="mt-5 mb-3 text-muted">&copy; 2021</p>
+<% end %>
