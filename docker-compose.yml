@@ -1,0 +1,24 @@
+version: '3.3'
+services:
+  web: &web
+    build:
+      context: .
+    command: bundle exec rails s -p 3210 -b '0.0.0.0'
+    environment:
+      DATABASE_URL: postgres://postgres:@postgres
+    ports:
+      - 3210:3000
+    stdin_open: true
+    tty: true
+    volumes:
+      - .:/app:cached
+      - bundle:/usr/local/bundle
+
+
+volumes:
+  bundle:
+
+networks:
+  default:
+    external:
+      name: styleport_backend
